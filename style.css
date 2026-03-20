@@ -1,0 +1,1408 @@
+/* ================= RESET ================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= BODY ================= */
+.body-bg{
+    background:black;
+    color:white;
+}
+
+/* ================= HEADER (TRANSPARENT) ================= */
+header{
+    position:absolute;
+    top:0;
+    width:100%;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:10;
+}
+
+header img{
+    height:50px;
+}
+
+/* Navigation */
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Nav Links */
+header nav a {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    color: #ff0000;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    letter-spacing: 3px;
+
+    text-shadow: 
+        0 0 5px #ff0000,
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 40px #8b0000,
+        0 0 80px #8b0000;
+
+    animation: flicker 2s infinite;
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+header nav a:hover {
+    color: white;
+    text-shadow: 
+        0 0 10px red,
+        0 0 20px red,
+        0 0 40px red,
+        0 0 80px red,
+        0 0 120px red;
+}
+
+/* Flicker Animation */
+@keyframes flicker {
+    0% { opacity: 1; }
+    5% { opacity: 0.4; }
+    10% { opacity: 1; }
+    15% { opacity: 0.6; }
+    20% { opacity: 1; }
+    55% { opacity: 0.9; }
+    60% { opacity: 0.3; }
+    65% { opacity: 1; }
+    100% { opacity: 1; }
+}
+/* ================= CHARACTERS SECTION ================= */
+#Characters{
+    max-width:1200px;
+    margin:0 auto;
+    padding-bottom:120px;
+
+    display:flex;
+    flex-wrap:wrap;          /* allows next row */
+    justify-content:center;
+    gap:70px;
+}
+
+/* ================= BANNER ================= */
+.animatedbanner{
+    height:100vh;
+    overflow:hidden;
+}
+
+.animatedbanner img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:brightness(70%) contrast(120%);
+    animation: slowZoom 12s infinite alternate;
+}
+
+/* Banner cinematic zoom */
+@keyframes slowZoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.08);}
+}
+
+/* ================= STAR CAST HEADING ================= */
+#Characters h1{
+    text-align:center;
+    margin:70px 0 60px;
+    font-size:52px;
+    color:red;
+    letter-spacing:4px;
+    text-shadow:0 0 20px red;
+}
+
+/* ================= CHARACTERS SECTION ================= */
+#Characters{
+    max-width:1200px;
+    margin:0 auto;
+    padding-bottom:120px;
+
+    display:flex;
+    flex-wrap:wrap;          /* allows next row */
+    justify-content:center;
+    gap:70px;
+}
+
+/* ================= CHARACTER POSTER ================= */
+.character{
+    width:250px;             /* 3–4 per row */
+    position:relative;
+    transform:rotate(-2deg);
+    transition:0.6s;
+}
+
+/* Image poster style */
+.character img{
+    width:100%;
+    border:3px solid red;
+    filter:grayscale(100%) contrast(120%);
+    box-shadow:0 0 25px rgba(255,0,0,0.6);
+    transition:0.6s;
+
+    /* reflection = NEXT LEVEL CSS */
+    -webkit-box-reflect: below 8px
+    linear-gradient(transparent, rgba(0,0,0,0.4));
+}
+
+/* ================= LIST STYLE TEXT ================= */
+.character h2{
+    margin-top:15px;
+    text-align:center;
+    color:red;
+    letter-spacing:2px;
+    font-size:20px;
+}
+
+.character h3{
+    text-align:center;
+    font-size:13px;
+    opacity:0.7;
+    margin-top:4px;
+}
+
+/* List separator look */
+.character h3::before{
+    content:"— ";
+    color:red;
+}
+
+.character h3::after{
+    content:" —";
+    color:red;
+}
+
+/* ================= HOVER EFFECT ================= */
+.character:hover{
+    transform:rotate(0deg) scale(1.08);
+}
+
+.character:hover img{
+    filter:grayscale(0);
+    box-shadow:0 0 45px red;
+}
+
+/* ================= NEXT CSS TRICK ================= */
+/* BLOOD DRIP (PURE CSS) */
+.character::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:100%;
+    width:3px;
+    height:0;
+    background:red;
+    transform:translateX(-50%);
+    opacity:0;
+    transition:0.6s;
+}
+
+.character:hover::after{
+    height:45px;
+    opacity:1;
+}
+
+/* ================= EXTRA CINEMATIC SHADOW ================= */
+.character::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(255,0,0,0.15);
+    filter:blur(20px);
+    opacity:0;
+    z-index:-1;
+    transition:0.6s;
+}
+
+.character:hover::before{
+    opacity:1;
+    transform:scale(1.1);
+}
+
+/* ================= RESPONSIVE (BONUS MARKS) ================= */
+@media(max-width:900px){
+    .character{
+        width:220px;      /* 2–3 per row */
+    }
+}
+
+@media(max-width:600px){
+    .character{
+        width:90%;        /* 1 per row */
+    }
+}
+/* ================= VECNA : NIGHTMARE MODE ================= */
+
+/* Base container */
+#character{
+    width:250px;
+    position:relative;
+    isolation:isolate;
+    transform:scale(1.07);
+}
+
+/* MAIN IMAGE – DEAD & CURSED */
+#character img{
+    width:100%;
+    border:3px solid #4b0000;
+    filter:
+        grayscale(40%)
+        contrast(190%)
+        brightness(45%)
+        saturate(220%);
+    box-shadow:
+        0 0 30px rgba(120,0,0,0.9),
+        inset 0 0 50px rgba(0,0,0,0.95);
+    transition:0.8s;
+}
+
+/* DARK HELL AURA */
+#character::before{
+    content:"";
+    position:absolute;
+    inset:-25px;
+    background:
+        radial-gradient(circle at center,
+        rgba(180,0,0,0.5),
+        rgba(0,0,0,0.9) 70%);
+    filter:blur(30px);
+    opacity:0.9;
+    z-index:-1;
+}
+
+/* SHADOW VEINS / CREEPING DARKNESS */
+#character::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        repeating-linear-gradient(
+            -45deg,
+            rgba(0,0,0,0.6),
+            rgba(0,0,0,0.6) 2px,
+            transparent 2px,
+            transparent 6px
+        );
+    mix-blend-mode:overlay;
+    opacity:0.25;
+    pointer-events:none;
+}
+
+/* VECNA NAME – CURSED FLICKER */
+#Devil{
+    margin-top:18px;
+    text-align:center;
+    color:#8b0000;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    text-shadow:
+        0 0 10px red,
+        0 0 25px darkred,
+        0 0 50px black;
+    animation: curseFlicker 1.6s infinite;
+}
+
+/* ACTOR NAME – VICTIM FADE */
+#devil{
+    text-align:center;
+    font-size:12px;
+    letter-spacing:2px;
+    opacity:0.4;
+    color:#999;
+}
+
+/* FLICKER ANIMATION (UNSETTLING) */
+@keyframes curseFlicker{
+    0%{opacity:1;}
+    10%{opacity:0.3;}
+    20%{opacity:1;}
+    45%{opacity:0.15;}
+    50%{opacity:1;}
+    70%{opacity:0.4;}
+    100%{opacity:1;}
+}
+
+/* HOVER = HEART-STOPPING MOMENT */
+#character:hover img{
+    filter:
+        grayscale(20%)
+        contrast(230%)
+        brightness(40%)
+        saturate(260%);
+    box-shadow:
+        0 0 60px red,
+        0 0 120px rgba(0,0,0,1);
+    transform:scale(1.12);
+}
+
+/* RED GLOW "EYE ZONE" ILLUSION */
+#character:hover::before{
+    background:
+        radial-gradient(circle at 50% 35%,
+        rgba(255,0,0,0.7),
+        rgba(0,0,0,0.95) 70%);
+}
+
+/* SUBTLE SHAKE (FEAR RESPONSE) */
+#character:hover{
+    animation: fearShake 0.15s infinite;
+}
+
+@keyframes fearShake{
+    0%{transform:translateX(0) scale(1.07);}
+    25%{transform:translateX(-1px) scale(1.07);}
+    50%{transform:translateX(1px) scale(1.07);}
+    75%{transform:translateX(-1px) scale(1.07);}
+    100%{transform:translateX(0) scale(1.07);}
+}
+/* ===== SEASON 1 CINEMATIC SECTION ===== */
+#Season1 {
+    position: relative;
+    min-height: 100vh; /* FULL SCREEN LOOK */
+    padding: 100px 80px;
+    color: #ffffff;
+
+    background-image: url("../images/season1background.jpg"); /* apni image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* cinematic effect */
+}
+
+/* 🔥 BLOODY DARK OVERLAY (not killing image) */
+#Season1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255,0,0,0.15), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+    z-index: 0;
+}
+
+/* content above overlay */
+#Season1 * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== TITLE ===== */
+#Season1 h2 {
+    font-size: 52px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #e50914;
+    text-shadow:
+        0 0 15px rgba(229,9,20,0.8),
+        0 0 40px rgba(229,9,20,0.6);
+    margin-bottom: 20px;
+}
+
+/* ===== CHAPTER ===== */
+#Season1 h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+#Season1 h3 strong {
+    color: #ff2a2a;
+    animation: flicker 2.5s infinite;
+}
+
+/* ===== STORY TEXT ===== */
+#Season1 p {
+    max-width: 900px;
+    font-size: 19px;
+    line-height: 2;
+    color: #e0e0e0;
+    font-family: "Courier New", monospace; /* thriller vibe */
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+}
+
+/* ===== PLAY BUTTON ===== */
+#Season1 button {
+    padding: 16px 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* glowing blood effect */
+#Season1 button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+#Season1 button:hover::before {
+    transform: scaleX(1);
+}
+
+#Season1 button:hover {
+    box-shadow: 0 0 35px rgba(255,0,0,0.9);
+    transform: scale(1.1);
+}
+
+/* ===== FLICKER ANIMATION ===== */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 0.3; }
+    50% { opacity: 1; }
+    55% { opacity: 0.4; }
+}
+#Season2 {
+    position: relative;
+    min-height: 100vh; /* FULL SCREEN LOOK */
+    padding: 100px 80px;
+    color: #ffffff;
+
+    background-image: url("../images/season2.jpg"); /* apni image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* cinematic effect */
+}
+/* 🔥 BLOODY DARK OVERLAY (not killing image) */
+#Season2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255,0,0,0.15), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+    z-index: 0;
+}
+
+/* content above overlay */
+#Season2 * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== TITLE ===== */
+#Season2 h2 {
+    font-size: 52px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #e50914;
+    text-shadow:
+        0 0 15px rgba(229,9,20,0.8),
+        0 0 40px rgba(229,9,20,0.6);
+    margin-bottom: 20px;
+}
+
+/* ===== CHAPTER ===== */
+#Season2 h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+#Season2 h3 strong {
+    color: #ff2a2a;
+    animation: flicker 2.5s infinite;
+}
+
+/* ===== STORY TEXT ===== */
+#Season2 p {
+    max-width: 900px;
+    font-size: 19px;
+    line-height: 2;
+    color: #e0e0e0;
+    font-family: "Courier New", monospace; /* thriller vibe */
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+}
+
+/* ===== PLAY BUTTON ===== */
+#Season2 button {
+    padding: 16px 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* glowing blood effect */
+#Season2 button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+#Season2 button:hover::before {
+    transform: scaleX(1);
+}
+
+#Season2 button:hover {
+    box-shadow: 0 0 35px rgba(255,0,0,0.9);
+    transform: scale(1.1);
+}
+
+/* ===== FLICKER ANIMATION ===== */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 0.3; }
+    50% { opacity: 1; }
+    55% { opacity: 0.4; }
+}
+#Season3 {
+    position: relative;
+    min-height: 100vh; /* FULL SCREEN LOOK */
+    padding: 100px 80px;
+    color: #ffffff;
+
+    background-image: url("../images/season3.jpg"); /* apni image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* cinematic effect */
+}
+
+/* 🔥 BLOODY DARK OVERLAY (not killing image) */
+#Season3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255,0,0,0.15), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+    z-index: 0;
+}
+
+/* content above overlay */
+#Season3 * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== TITLE ===== */
+#Season3 h2 {
+    font-size: 52px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #e50914;
+    text-shadow:
+        0 0 15px rgba(229,9,20,0.8),
+        0 0 40px rgba(229,9,20,0.6);
+    margin-bottom: 20px;
+}
+
+/* ===== CHAPTER ===== */
+#Season3 h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+#Season3 h3 strong {
+    color: #ff2a2a;
+    animation: flicker 2.5s infinite;
+}
+
+/* ===== STORY TEXT ===== */
+#Season3 p {
+    max-width: 900px;
+    font-size: 19px;
+    line-height: 2;
+    color: #e0e0e0;
+    font-family: "Courier New", monospace; /* thriller vibe */
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+}
+
+/* ===== PLAY BUTTON ===== */
+#Season3 button {
+    padding: 16px 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* glowing blood effect */
+#Season3 button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+#Season3 button:hover::before {
+    transform: scaleX(1);
+}
+
+#Season3 button:hover {
+    box-shadow: 0 0 35px rgba(255,0,0,0.9);
+    transform: scale(1.1);
+}
+/* ===== FLICKER ANIMATION ===== */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 0.3; }
+    50% { opacity: 1; }
+    55% { opacity: 0.4; }
+}
+#Season4 {
+    position: relative;
+    min-height: 100vh; /* FULL SCREEN LOOK */
+    padding: 100px 80px;
+    color: #ffffff;
+
+    background-image: url("../images/season4.jpg"); /* apni image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* cinematic effect */
+}
+
+/* 🔥 BLOODY DARK OVERLAY (not killing image) */
+#Season4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255,0,0,0.15), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+    z-index: 0;
+}
+
+/* content above overlay */
+#Season4 * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== TITLE ===== */
+#Season4 h2 {
+    font-size: 52px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #e50914;
+    text-shadow:
+        0 0 15px rgba(229,9,20,0.8),
+        0 0 40px rgba(229,9,20,0.6);
+    margin-bottom: 20px;
+}
+
+/* ===== CHAPTER ===== */
+#Season4 h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+#Season4 h3 strong {
+    color: #ff2a2a;
+    animation: flicker 2.5s infinite;
+}
+
+/* ===== STORY TEXT ===== */
+#Season4 p {
+    max-width: 900px;
+    font-size: 19px;
+    line-height: 2;
+    color: #e0e0e0;
+    font-family: "Courier New", monospace; /* thriller vibe */
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+}
+
+/* ===== PLAY BUTTON ===== */
+#Season4 button {
+    padding: 16px 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* glowing blood effect */
+#Season4 button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+#Season4 button:hover::before {
+    transform: scaleX(1);
+}
+
+#Season4 button:hover {
+    box-shadow: 0 0 35px rgba(255,0,0,0.9);
+    transform: scale(1.1);
+}
+/* ===== FLICKER ANIMATION ===== */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 0.3; }
+    50% { opacity: 1; }
+    55% { opacity: 0.4; }
+}
+#Season5 {
+    position: relative;
+    min-height: 100vh; /* FULL SCREEN LOOK */
+    padding: 100px 80px;
+    color: #ffffff;
+
+    background-image: url("../images/season5.jpg"); /* apni image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* cinematic effect */
+}
+
+/* 🔥 BLOODY DARK OVERLAY (not killing image) */
+#Season5::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255,0,0,0.15), rgba(0,0,0,0.85)),
+        linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+    z-index: 0;
+}
+
+/* content above overlay */
+#Season5 * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== TITLE ===== */
+#Season5 h2 {
+    font-size: 52px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #e50914;
+    text-shadow:
+        0 0 15px rgba(229,9,20,0.8),
+        0 0 40px rgba(229,9,20,0.6);
+    margin-bottom: 20px;
+}
+
+/* ===== CHAPTER ===== */
+#Season5 h3 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+#Season5 h3 strong {
+    color: #ff2a2a;
+    animation: flicker 2.5s infinite;
+}
+
+/* ===== STORY TEXT ===== */
+#Season5 p {
+    max-width: 900px;
+    font-size: 19px;
+    line-height: 2;
+    color: #e0e0e0;
+    font-family: "Courier New", monospace; /* thriller vibe */
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    margin-bottom: 50px;
+}
+
+/* ===== PLAY BUTTON ===== */
+#Season5 button {
+    padding: 16px 50px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid #ff0000;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* glowing blood effect */
+#Season5 button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 0, 0, 0.4);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+#Season5 button:hover::before {
+    transform: scaleX(1);
+}
+
+#Season5 button:hover {
+    box-shadow: 0 0 35px rgba(255,0,0,0.9);
+    transform: scale(1.1);
+}
+/* ===== FLICKER ANIMATION ===== */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 0.3; }
+    50% { opacity: 1; }
+    55% { opacity: 0.4; }
+}
+/* ===== FANPAGE : UPSIDE DOWN SIGNALS ===== */
+
+#Fanpage {
+    padding: 120px 80px;
+    background:
+        radial-gradient(circle at top, rgba(80,0,0,0.8), #000);
+    text-align: center;
+    position: relative;
+}
+
+#Fanpage h2 {
+    font-size: 48px;
+    letter-spacing: 6px;
+    color: #e50914;
+    margin-bottom: 20px;
+    text-shadow: 0 0 25px red;
+}
+
+.fan-intro {
+    max-width: 700px;
+    margin: 0 auto 70px;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    opacity: 0.8;
+}
+
+/* GRID */
+.fan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 50px;
+}
+
+/* FAN CARD */
+.fan-card {
+    background: rgba(0,0,0,0.8);
+    border: 2px solid #400;
+    padding: 35px 25px;
+    box-shadow:
+        0 0 30px rgba(255,0,0,0.4),
+        inset 0 0 60px rgba(0,0,0,0.9);
+    transform: rotate(-2deg);
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* STATIC NOISE */
+.fan-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.04),
+            rgba(255,255,255,0.04) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+    opacity: 0.3;
+}
+
+/* TEXT */
+.fan-card p {
+    font-size: 16px;
+    line-height: 1.9;
+    font-family: "Courier New", monospace;
+}
+
+.fan-card span {
+    display: block;
+    margin-top: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #ff2a2a;
+    opacity: 0.7;
+}
+
+/* HOVER = SIGNAL DISTORTION */
+.fan-card:hover {
+    transform: rotate(0deg) scale(1.08);
+    box-shadow: 0 0 60px red;
+}
+/* ===== FANPAGE : UPSIDE DOWN SIGNALS ===== */
+
+#Fanpage {
+    padding: 120px 80px;
+    background: radial-gradient(circle at top, rgba(80,0,0,0.8), #000);
+    text-align: center;
+}
+
+#Fanpage h2 {
+    font-size: 48px;
+    letter-spacing: 6px;
+    color: #e50914;
+    margin-bottom: 15px;
+    text-shadow: 0 0 25px red;
+}
+
+.fan-intro {
+    max-width: 750px;
+    margin: 0 auto 80px;
+    font-family: "Courier New", monospace;
+    font-size: 17px;
+    opacity: 0.75;
+}
+
+/* FAN CARD */
+.fan-card {
+    max-width: 900px;
+    margin: 0 auto 70px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 35px;
+
+    background: rgba(0,0,0,0.85);
+    border-left: 4px solid #600;
+    box-shadow:
+        0 0 35px rgba(255,0,0,0.4),
+        inset 0 0 60px rgba(0,0,0,0.9);
+
+    transition: 0.5s;
+}
+
+/* IMAGE */
+.fan-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    filter: grayscale(80%) contrast(130%);
+    box-shadow: 0 0 25px rgba(255,0,0,0.6);
+    transition: 0.5s;
+}
+
+/* TEXT */
+.fan-card p {
+    font-size: 18px;
+    line-height: 2;
+    font-family: "Courier New", monospace;
+    text-align: left;
+}
+
+.fan-card span {
+    display: block;
+    margin-top: 18px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ff2a2a;
+    opacity: 0.7;
+    text-align: left;
+}
+
+/* HOVER EFFECT */
+.fan-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 70px red;
+}
+
+.fan-card:hover img {
+    filter: grayscale(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    .fan-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .fan-card p,
+    .fan-card span {
+        text-align: center;
+    }
+}
+
+/* ===== ABOUT SECTION : REALITY BREAK ===== */
+/* ===== ABOUT SECTION : CREEPY MODE ===== */
+#About {
+    position: relative;
+    padding: 100px 80px;
+    margin: 140px auto;
+    max-width: 1000px;
+
+    background:
+        radial-gradient(circle at top, rgba(60,0,0,0.9), rgba(0,0,0,0.95)),
+        linear-gradient(to bottom, #000, #120000);
+
+    border-left: 5px solid #e50914;
+
+    box-shadow:
+        0 0 50px rgba(255,0,0,0.4),
+        inset 0 0 80px rgba(0,0,0,0.95);
+
+    opacity: 0;
+    animation: emerge 2.2s ease forwards;
+    overflow: hidden;
+}
+
+/* ===== UPSIDE DOWN DRIPPING SHADOW ===== */
+#About::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,0,0,0.15),
+            transparent 40%
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.05),
+            rgba(255,255,255,0.05) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+    animation: shadowFall 6s infinite linear;
+    z-index: 0;
+}
+
+/* ===== FLICKERING DARKNESS ===== */
+#About::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    animation: flickerDark 3.5s infinite;
+    z-index: 0;
+}
+
+/* keep content above effects */
+#About * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== TITLE ===== */
+#About h2 {
+    font-size: 46px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #e50914;
+    margin-bottom: 35px;
+
+    text-shadow:
+        0 0 20px rgba(229,9,20,0.9),
+        0 0 45px rgba(229,9,20,0.6);
+
+    animation: titleGlitch 4s infinite;
+}
+
+/* ===== TEXT ===== */
+#About p {
+    font-size: 18px;
+    line-height: 2.1;
+    color: #d8d8d8;
+    font-family: "Courier New", monospace;
+    text-align: justify;
+}
+
+/* ===== HOVER: REALITY BREAK ===== */
+#About:hover {
+    box-shadow:
+        0 0 80px rgba(255,0,0,0.9),
+        inset 0 0 120px rgba(0,0,0,1);
+    transition: 0.4s;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes emerge {
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.95);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes shadowFall {
+    from { background-position: 0 0; }
+    to   { background-position: 0 600px; }
+}
+
+@keyframes flickerDark {
+    0%, 100% { opacity: 0.25; }
+    45% { opacity: 0.6; }
+    50% { opacity: 0.15; }
+    55% { opacity: 0.7; }
+}
+
+@keyframes titleGlitch {
+    0%, 100% { transform: translate(0,0); }
+    92% { transform: translate(-1px, 1px); }
+    94% { transform: translate(2px, -2px); }
+    96% { transform: translate(-2px, 0); }
+}
+#Footer {
+    position: relative;
+    background: radial-gradient(circle at top, #1a0000, #000);
+    padding: 80px 20px;
+    text-align: center;
+    color: #bbb;
+    overflow: hidden;
+    border-top: 2px solid #300;
+}
+
+/* BLOOD FOG */
+#Footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(255,0,0,0.25), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(255,0,0,0.15), transparent 45%);
+    animation: fogMove 10s infinite alternate;
+    z-index: 0;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* TITLE GLITCH */
+#Footer h3 {
+    font-size: 2.4rem;
+    color: #ff1a1a;
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#Footer h3::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 3px;
+    top: 0;
+    color: #fff;
+    opacity: 0.4;
+    animation: glitchText 1.5s infinite;
+}
+
+/* PARAGRAPH */
+#Footer p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    opacity: 0.8;
+    margin-bottom: 35px;
+    animation: textFloat 5s infinite alternate;
+}
+
+/* SOCIAL BUTTONS */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.social {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background: #111;
+    border: 2px solid #400;
+    box-shadow: 0 0 15px rgba(255,0,0,0.4);
+    transition: all 0.4s ease;
+}
+
+/* INDIVIDUAL VIBES */
+.linkedin:hover {
+    background: #0a66c2;
+    box-shadow: 0 0 25px #0a66c2;
+}
+
+.instagram:hover {
+    background: radial-gradient(circle at top, #feda75, #d62976, #962fbf);
+    box-shadow: 0 0 25px #d62976;
+}
+
+.github:hover {
+    background: #000;
+    box-shadow: 0 0 30px red;
+}
+
+/* HOVER = REALITY SHAKE */
+.social:hover {
+    transform: scale(1.2) rotate(-6deg);
+}
+
+/* DIVIDER LINE */
+.footer-line {
+    display: block;
+    width: 120px;
+    height: 2px;
+    margin: 20px auto;
+    background: linear-gradient(to right, transparent, red, transparent);
+    animation: linePulse 3s infinite;
+}
+
+/* SMALL TEXT */
+#Footer small {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    opacity: 0.6;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fogMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-40px); }
+}
+
+@keyframes glitchText {
+    0% { clip-path: inset(0 0 90% 0); }
+    50% { clip-path: inset(40% 0 20% 0); }
+    100% { clip-path: inset(80% 0 0 0); }
+}
+
+@keyframes textFloat {
+    from { letter-spacing: 1px; }
+    to { letter-spacing: 4px; }
+}
+
+@keyframes linePulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+/* ================= HAMBURGER FIX ================= */
+
+#menu-toggle{
+    display:none;
+}
+
+/* hamburger icon */
+.menu-icon{
+    display:none;
+    font-size:28px;
+    color:red;
+    cursor:pointer;
+    z-index:100;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+    header{
+        position:relative;
+        padding:15px 20px;
+    }
+
+    .menu-icon{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:black;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:20px;
+        padding:20px 0;
+
+        max-height:0;
+        overflow:hidden;
+        transition:0.4s ease;
+    }
+
+    /* 🔥 MAIN FIX */
+    #menu-toggle:checked + .menu-icon + .nav-links{
+        max-height:300px;
+    }
+
+    .nav-links a{
+        margin:0;
+    }
+}
+
+/* ================= DESKTOP ================= */
+
+@media(min-width:701px){
+
+    .nav-links{
+        display:flex !important;
+        position:static;
+        max-height:none;
+        flex-direction:row;
+        background:transparent;
+    }
+
+    .menu-icon{
+        display:none;
+    }
+}
