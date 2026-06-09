@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<!--Home-->
+  <url>
+    <loc>https://strangerthings-jet.vercel.app/#Home</loc>
+    <lastmod>2026-06-04</lastmod>
+  </url>
+    <url>
+        <loc>https://strangerthings-jet.vercel.app/#Characters</loc>
+        <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+        <loc>https://strangerthings-jet.vercel.app/#Story</loc>
+        <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+        <loc>https://strangerthings-jet.vercel.app/#Fanpage</loc>
+        <lastmod>2026-06-04</lastmod>
+    </url>
+    <url>
+        <loc>https://strangerthings-jet.vercel.app/#About</loc>
+        <lastmod>2026-06-04</lastmod>
+    </url>
+</urlset>

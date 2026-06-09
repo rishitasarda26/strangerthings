@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /images
+Disallow: /*.jpg$
+
+Sitemap:  https://strangerthings-jet.vercel.app/sitemap.xml
